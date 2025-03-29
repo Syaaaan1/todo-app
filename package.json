@@ -1,0 +1,31 @@
+{
+  "name": "to-do-app",
+  "version": "1.0.0",
+  "description": "Task management API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syaaaan1/todo-app.git"
+  },
+  "author": "Evgenii Pechonkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syaaaan1/todo-app/issues"
+  },
+  "homepage": "https://github.com/Syaaaan1/todo-app#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jwt-simple": "^0.5.6",
+    "mysql2": "^3.14.0",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
