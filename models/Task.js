@@ -24,11 +24,6 @@ const Task = {
   getTasksByStatus: (status, callback) => {
     const query = 'SELECT * FROM tasks WHERE status = ?';
     db.query(query, [status], callback);
-  },
-  
-  getTasksByStatusAndUser: (status, userId, callback) => {
-    const query = 'SELECT * FROM tasks WHERE status = ? AND user_id = ?';
-    db.query(query, [status, userId], callback);
   }
 };
 
