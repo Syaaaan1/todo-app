@@ -19,6 +19,16 @@ const Task = {
   deleteTask: (taskId, callback) => {
     const query = 'DELETE FROM tasks WHERE id = ?';
     db.query(query, [taskId], callback);
+  },
+
+  getTasksByStatus: (status, callback) => {
+    const query = 'SELECT * FROM tasks WHERE status = ?';
+    db.query(query, [status], callback);
+  },
+  
+  getTasksByStatusAndUser: (status, userId, callback) => {
+    const query = 'SELECT * FROM tasks WHERE status = ? AND user_id = ?';
+    db.query(query, [status, userId], callback);
   }
 };
 

@@ -2,11 +2,12 @@ const express = require('express');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const { swaggerDocs } = require('./swagger');
+const setupSwagger = require('./swagger');
 
 dotenv.config();
 
 const app = express();
+
 
 // Підключення до БД MySQL
 const db = mysql.createConnection({
@@ -33,10 +34,10 @@ app.use('/api', require('./routes/tasks'));
 app.use('/api/auth', require('./routes/auth'));
 
 // Swagger документація
-swaggerDocs(app);
+setupSwagger(app);
 
 // Запуск сервера
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Сервер працює на порту ${PORT}`);
+  console.log(`Сервер працює на порту ${PORT}, логування запитів увімкнено`);
 });

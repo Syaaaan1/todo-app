@@ -6,6 +6,31 @@ const bcrypt = require('bcryptjs');
 const { JWT_SECRET } = process.env;
 
 // Реєстрація
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Реєстрація нового користувача
+ *     description: Створює нового користувача з email та паролем
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: "user@example.com"
+ *               password:
+ *                 type: string
+ *                 example: "mypassword123"
+ *     responses:
+ *       201:
+ *         description: Користувача зареєстровано
+ *       500:
+ *         description: Помилка реєстрації
+ */
 router.post('/register', (req, res) => {
   const { email, password } = req.body;
 
@@ -16,6 +41,39 @@ router.post('/register', (req, res) => {
 });
 
 // Логін
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Логін користувача
+ *     description: Авторизація користувача за email та паролем
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: "user@example.com"
+ *               password:
+ *                 type: string
+ *                 example: "mypassword123"
+ *     responses:
+ *       200:
+ *         description: Успішний вхід, повертає JWT-токен
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR..."
+ *       400:
+ *         description: Невірний email або пароль
+ */
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
